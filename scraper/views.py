@@ -21,8 +21,8 @@ import threading
 geolocator = Nominatim(user_agent="MyApp")
 
 cron_flag = True
-d_time_one = '00:17'
-d_time_two = '00:22'
+d_time_one = '00:00'
+d_time_two = '12:00'
 d_action = 'DISABLE'
 
 # FUNCTION TO START CRON JOB/SCHEDULER
