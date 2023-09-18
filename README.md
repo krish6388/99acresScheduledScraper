@@ -20,3 +20,6 @@ This table is used to store the track record of all the scraping along with the 
 ## DATABASE FLOW
 Whenever new data is entered then the current data is saved in the PropertyBkp table and the new data is stored in the PropertyTemp table. 
 After the successful execution of the above process we will save the PropertyTemp data into Property table. 
+
+## SCHEDULER
+As this project has been made on windows so instead of Django CRON job, Python threads has been used to implement scheduling functions
