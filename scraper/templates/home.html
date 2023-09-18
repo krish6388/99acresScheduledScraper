@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .data{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="text-align: center;">Welcome to 99acres web scraper</h1>
+    <form action="/" method="post">
+        {% csrf_token %}
+        <label for="">Enter time for running jobs two times</label>
+        
+        <input type="time" name="time1" id="" value={{t1}}>
+        <input type="time" name="time2" id="" value={{t2}}>
+        <!-- <label for="">{{msg}}</label> -->
+        <button type="submit">{{msg}}</button>
+        
+    </form>
+    <form action="/scrape_now" method="post">
+        {% csrf_token %}
+        {% if msg == "ENABLE"%}
+        <button type="submit">SCRAPE NOW</button>
+        {% endif %}
+    </form>
+
+    <br><br>
+    <h1>ALL RECORDS TILL NOW!</h1>
+    <div class="data">
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Execution time</th>
+                    <th>City</th>
+                    <th>No of Records</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in data %}
+                <tr>
+                    <td>{{ item.time }}</td>
+                    <td>{{ item.city }}</td>
+                    <td>{{ item.num }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    
+</body>
+</html>
